@@ -10,8 +10,6 @@
         <link rel="stylesheet" href="css/L.Control.Layers.Tree.css">
         <link rel="stylesheet" href="css/qgis2web.css">
         <link rel="stylesheet" href="css/fontawesome-all.min.css">
-        <link rel="stylesheet" href="css/MarkerCluster.css">
-        <link rel="stylesheet" href="css/MarkerCluster.Default.css">
         <link rel="stylesheet" href="css/leaflet.photon.css">
         <style>
         html, body, #map {
@@ -37,7 +35,6 @@
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
         <script src="js/leaflet.photon.js"></script>
-        <script src="js/leaflet.markercluster.js"></script>
         <script src="data/natural_0.js"></script>
         <script src="data/landuse_1.js"></script>
         <script src="data/waterways_2.js"></script>
@@ -389,12 +386,8 @@
                 return L.circleMarker(latlng, style_Seim2023Okullar_5_0(feature));
             },
         });
-        var cluster_Seim2023Okullar_5 = new L.MarkerClusterGroup({showCoverageOnHover: false,
-            spiderfyDistanceMultiplier: 2});
-        cluster_Seim2023Okullar_5.addLayer(layer_Seim2023Okullar_5);
-
         bounds_group.addLayer(layer_Seim2023Okullar_5);
-        cluster_Seim2023Okullar_5.addTo(map);
+        map.addLayer(layer_Seim2023Okullar_5);
         setBounds();
         L.ImageOverlay.include({
             getBounds: function () {
