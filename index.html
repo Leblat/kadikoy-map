@@ -46,7 +46,7 @@
         <script>
         var map = L.map('map', {
             zoomControl:false, maxZoom:18, minZoom:1
-        }).fitBounds([[40.92481244497943,28.985579791827465],[41.06784815926515,29.126204791827465]]);
+        }).fitBounds([[40.90976969066499,28.99549085568969],[41.077001725621685,29.15708585576021]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -218,12 +218,6 @@
                     <tr>\
                         <td colspan="2">' + (feature.properties['osm_id'] !== null ? autolinker.link(String(feature.properties['osm_id']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['name'] !== null ? autolinker.link(String(feature.properties['name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['type'] !== null ? autolinker.link(String(feature.properties['type']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
 			layer.on('popupopen', function(e) {
@@ -238,8 +232,8 @@
                 stroke: false, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(135,136,194,0.4627450980392157)',
-                interactive: true,
+                fillColor: 'rgba(135,136,194,0.5019607843137255)',
+                interactive: false,
             }
         }
         map.createPane('pane_Binalar_2');
@@ -247,7 +241,7 @@
         map.getPane('pane_Binalar_2').style['mix-blend-mode'] = 'normal';
         var layer_Binalar_2 = new L.geoJson(json_Binalar_2, {
             attribution: '',
-            interactive: true,
+            interactive: false,
             dataVar: 'json_Binalar_2',
             layerName: 'layer_Binalar_2',
             pane: 'pane_Binalar_2',
