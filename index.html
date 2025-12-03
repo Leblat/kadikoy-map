@@ -37,7 +37,7 @@
         <script src="js/leaflet.photon.js"></script>
         <script src="data/natural_0.js"></script>
         <script src="data/landuse_1.js"></script>
-        <script src="data/binalar_2.js"></script>
+        <script src="data/Binalar_2.js"></script>
         <script src="data/waterways_3.js"></script>
         <script src="data/roads_4.js"></script>
         <script src="data/KadkyMahalleler_5.js"></script>
@@ -46,7 +46,7 @@
         <script>
         var map = L.map('map', {
             zoomControl:false, maxZoom:18, minZoom:1
-        }).fitBounds([[40.886564328349806,28.98754477508636],[41.02960004263552,29.12816977508636]]);
+        }).fitBounds([[40.92481244497943,28.985579791827465],[41.06784815926515,29.126204791827465]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -147,7 +147,7 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(150,150,150,1.0)',
+                fillColor: 'rgba(194,194,194,1.0)',
                 interactive: false,
             }
         }
@@ -213,7 +213,7 @@
         });
         bounds_group.addLayer(layer_landuse_1);
         map.addLayer(layer_landuse_1);
-        function pop_binalar_2(feature, layer) {
+        function pop_Binalar_2(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['osm_id'] !== null ? autolinker.link(String(feature.properties['osm_id']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -232,35 +232,30 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_binalar_2_0() {
+        function style_Binalar_2_0() {
             return {
-                pane: 'pane_binalar_2',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.5)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
+                pane: 'pane_Binalar_2',
+                stroke: false, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(0,0,0,0.5)',
-                interactive: false,
+                fillColor: 'rgba(135,136,194,0.4627450980392157)',
+                interactive: true,
             }
         }
-        map.createPane('pane_binalar_2');
-        map.getPane('pane_binalar_2').style.zIndex = 402;
-        map.getPane('pane_binalar_2').style['mix-blend-mode'] = 'normal';
-        var layer_binalar_2 = new L.geoJson(json_binalar_2, {
+        map.createPane('pane_Binalar_2');
+        map.getPane('pane_Binalar_2').style.zIndex = 402;
+        map.getPane('pane_Binalar_2').style['mix-blend-mode'] = 'normal';
+        var layer_Binalar_2 = new L.geoJson(json_Binalar_2, {
             attribution: '',
-            interactive: false,
-            dataVar: 'json_binalar_2',
-            layerName: 'layer_binalar_2',
-            pane: 'pane_binalar_2',
-            onEachFeature: pop_binalar_2,
-            style: style_binalar_2_0,
+            interactive: true,
+            dataVar: 'json_Binalar_2',
+            layerName: 'layer_Binalar_2',
+            pane: 'pane_Binalar_2',
+            onEachFeature: pop_Binalar_2,
+            style: style_Binalar_2_0,
         });
-        bounds_group.addLayer(layer_binalar_2);
-        map.addLayer(layer_binalar_2);
+        bounds_group.addLayer(layer_Binalar_2);
+        map.addLayer(layer_Binalar_2);
         function pop_waterways_3(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -345,7 +340,7 @@
             return {
                 pane: 'pane_roads_4',
                 opacity: 1,
-                color: 'rgba(200,80,80,1.0)',
+                color: 'rgba(208,123,123,1.0)',
                 dashArray: '',
                 lineCap: 'square',
                 lineJoin: 'bevel',
@@ -388,7 +383,7 @@
             return {
                 pane: 'pane_KadkyMahalleler_5',
                 opacity: 1,
-                color: 'rgba(53,121,177,1.0)',
+                color: 'rgba(108,142,219,1.0)',
                 dashArray: '',
                 lineCap: 'square',
                 lineJoin: 'bevel',
@@ -531,7 +526,7 @@
             {label: '<img src="legend/KadkyMahalleler_5.png" /> Kadıköy Mahalleler', layer: layer_KadkyMahalleler_5},
             {label: '<img src="legend/roads_4.png" /> roads', layer: layer_roads_4},
             {label: '<img src="legend/waterways_3.png" /> waterways', layer: layer_waterways_3},
-            {label: '<img src="legend/binalar_2.png" /> binalar', layer: layer_binalar_2},
+            {label: '<img src="legend/Binalar_2.png" /> Binalar', layer: layer_Binalar_2},
             {label: '<img src="legend/landuse_1.png" /> landuse', layer: layer_landuse_1},
             {label: '<img src="legend/natural_0.png" /> natural', layer: layer_natural_0},]
         var lay = L.control.layers.tree(null, overlaysTree,{
